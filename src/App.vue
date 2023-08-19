@@ -1,10 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+
+const userInput = ref("");
+const imageDescription = ref("");
+</script>
 
 <template>
 	<div class="carousel-container">
-		<div class="image-container">Display Image</div>
+		<div class="image-container">
+			<img :src="userInput" :alt="imageDescription" />
+		</div>
 		<div class="input-container">
-			<input type="text" placeholder="Paste URL" />
+			<input type="text" placeholder="Paste URL" v-model="userInput" />
+			<input
+				type="text"
+				placeholder="Image Description"
+				v-model="imageDescription"
+			/>
 			<button>Upload</button>
 		</div>
 	</div>
@@ -18,7 +30,7 @@
 }
 
 .image-container {
-	margin: 30vh;
+	margin: 4vh;
 }
 
 .input-container {
@@ -32,5 +44,10 @@ input {
 
 button {
 	height: 3.6vh;
+}
+
+img {
+	max-width: 200vh;
+	max-height: 200px;
 }
 </style>
