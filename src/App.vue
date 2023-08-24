@@ -2,22 +2,22 @@
 import { ref } from "vue";
 
 const userInput = ref("");
-const imageDescription = ref("");
+const imageArray = ref([""]);
+
+function addImage() {
+	imageArray.value.push(userInput.value);
+	userInput.value = "";
+}
 </script>
 
 <template>
 	<div class="carousel-container">
-		<div class="image-container">
-			<img :src="userInput" :alt="imageDescription" />
+		<div class="image-container" v-if="imageArray">
+			<img v-for="image in imageArray" :src="image" />
 		</div>
 		<div class="input-container">
 			<input type="text" placeholder="Paste URL" v-model="userInput" />
-			<input
-				type="text"
-				placeholder="Image Description"
-				v-model="imageDescription"
-			/>
-			<button>Upload</button>
+			<button @click="addImage">Upload</button>
 		</div>
 	</div>
 </template>
@@ -30,7 +30,8 @@ const imageDescription = ref("");
 }
 
 .image-container {
-	margin: 4vh;
+	display: flex;
+	max-width: 100%;
 }
 
 .input-container {
@@ -48,6 +49,6 @@ button {
 
 img {
 	max-width: 200vh;
-	max-height: 200px;
+	max-height: 200vh;
 }
 </style>
