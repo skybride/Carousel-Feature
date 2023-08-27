@@ -1,3 +1,17 @@
+# Feature Status:
+## Add Multiple Images
+![image](https://github.com/skybride/Carousel-Feature/assets/36782808/66bac453-c48a-4725-9554-deac050afd20)
+
+## Modal
+![image](https://github.com/skybride/Carousel-Feature/assets/36782808/183741f4-789b-478a-9f38-8717a38a3a5d)
+
+## Delete
+![image](https://github.com/skybride/Carousel-Feature/assets/36782808/42324481-a93f-44e4-afe4-4c9e207584ea)
+
+
+# Feature Breakdown
+![image](https://github.com/skybride/Carousel-Feature/assets/36782808/df034849-7dd6-4ee6-a327-20d29a2e4ac4)
+
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
