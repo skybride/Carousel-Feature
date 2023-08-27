@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import ModalComponent from "./components/ModalComponent.vue";
 
 const userInput = ref("");
 const imageArray = ref([""]);
@@ -32,23 +33,17 @@ function closeModal() {
 
 <template>
 	<div class="carousel-container">
+		<ModalComponent
+			:openModal="openModal"
+			@deleteImage="deleteImage"
+			@closeModal="closeModal"
+		/>
 		<div class="image-container" v-if="imageArray">
 			<img
 				v-for="(image, key) in imageArray"
 				:src="image"
 				@click="showImageModal(key, image)"
 			/>
-			<div class="modal" v-if="openModal">
-				<div class="modal-message">
-					Are you sure you want to delete the image?
-				</div>
-				<button class="modal-button" @click="deleteImage">
-					<i class="fa fa-trash-o"></i>
-				</button>
-				<button class="modal-button" @click="closeModal">
-					<i class="fa fa-close"></i>
-				</button>
-			</div>
 		</div>
 		<div class="input-container">
 			<input type="text" placeholder="Paste URL" v-model="userInput" />
@@ -92,35 +87,5 @@ img {
 
 img:hover {
 	cursor: pointer;
-}
-
-i {
-	font-size: xx-large;
-}
-
-.modal {
-	background-color: rgba(0, 0, 0, 0.4);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	position: fixed;
-	overflow: auto;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 1;
-}
-
-.modal-message {
-	background-color: snow;
-	font-size: xx-large;
-	padding: 4%;
-}
-
-.modal-button {
-	cursor: pointer;
-	height: 6%;
-	width: 100%;
 }
 </style>
